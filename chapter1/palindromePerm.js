@@ -1,37 +1,59 @@
 // Given a string, write a function to check if it is a permuation of a palindrome. a palindrome is a word/phrase that is the same forwards/backwrards. A permutation is a rearrangement of letters. The palindrome does not need to be limited to just dictionary words
 
 
-/* 
-  todo This is a naive approach
- */
 
 palindromePerm = (str) => {
-    var cleanedStr = str.replace(/ /g, "" ).toLowerCase(),
-        isEven = cleanedStr.length % 2 === 0,
-        firstHalf = cleanedStr.substring(0, Math.round(cleanedStr.length/2)).split("").sort().join(""),
-        secondHalf;
-    if (isEven) {
-        secondHalf = cleanedStr.substring(cleanedStr.length/2).split("").sort().join("");
-        if (firstHalf === secondHalf){
-            return true;
-        }
-    } 
-    else {
-        secondHalf = cleanedStr.substring(cleanedStr.length,  Math.round(cleanedStr.length/2)).split("").sort().join("");
-        if (firstHalf.length === secondHalf.length + 1){
-            for (var i = 0; i < firstHalf.length; i++){
-                for (var g = i + 1; g < secondHalf.length; g++){
-                    if (firstHalf[i] !== secondHalf[g]){
-                        return true
-                    }
-                }            
-            }
+    var strArr = str.replace(/ /g, "").toLowerCase().split("");
+    var hashStr = {};
+    var leftOver = [];
+
+    for (var i = 0; i < strArr.length; i++){
+        hashStr[strArr[i]] = (isNaN(hashStr[strArr[i]])) ? 1 :hashStr[strArr[i]] + 1 ;
+    }
+    for(var k = 0; k < Object.keys(hashStr).length; k++){
+        if (hashStr[k] === 1){
+            leftOver.push(hashStr[k])
         }
     }
-    return false;
+    if (leftOver.length > 1){
+        return false
+    }
+    return true;
 }
 
-// palindromePerm("taco cat") => true
-// palindromePerm("Tact Coa") => true
-// palindromePerm("12344321") => true
-// palindromePerm("1234432") => true   2341 432
+
+
+//original attempt
+
+
+// var cleanedStr = str.replace(/ /g, "" ).toLowerCase(),
+// isEven = cleanedStr.length % 2 === 0,
+// firstHalf = cleanedStr.substring(0, Math.round(cleanedStr.length/2)).split("").sort().join(""),
+// secondHalf;
+
+// if (isEven) {
+// secondHalf = cleanedStr.substring(cleanedStr.length/2).split("").sort().join("");
+// if (firstHalf === secondHalf){
+//     return true;
+// }
+// } 
+// else {
+// secondHalf = cleanedStr.substring(cleanedStr.length,  Math.round(cleanedStr.length/2)).split("").sort().join("");
+// if (firstHalf.length === secondHalf.length + 1){
+//     for (var i = 0; i < firstHalf.length; i++){
+//         for (var g = i + 1; g < secondHalf.length; g++){
+//             if (firstHalf[i] !== secondHalf[g]){
+//                 return true
+//             }
+//         }            
+//     }
+// }
+// }
+// return false;
+
+console.log( palindromePerm("12344321") ); //true
+console.log( palindromePerm("abcddcba")); //true
+console.log(palindromePerm("123443")); //false
+console.log(palindromePerm("Tact Coa")); //true
+console.log(palindromePerm("anna")); //true
+console.log(palindromePerm("Eva can I see bees in a cave")) // true
