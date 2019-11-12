@@ -6,15 +6,19 @@ palindromePerm = (str) => {
     var strArr = str.replace(/ /g, "").toLowerCase().split("");
     var hashStr = {};
     var leftOver = [];
-
+    //  assign k/v to hash
     for (var i = 0; i < strArr.length; i++){
         hashStr[strArr[i]] = (isNaN(hashStr[strArr[i]])) ? 1 :hashStr[strArr[i]] + 1 ;
     }
+
+    //push keys with value of 1 to array
     for(var k = 0; k < Object.keys(hashStr).length; k++){
         if (hashStr[k] === 1){
             leftOver.push(hashStr[k])
         }
     }
+
+    // if there are more than 1 base character in array  with just 1 value, we know that it is not a palindrome
     if (leftOver.length > 1){
         return false
     }
