@@ -8,7 +8,7 @@ palindromePerm = (str) => {
     var leftOver = [];
     //  assign k/v to hash
     for (var i = 0; i < strArr.length; i++){
-        hashStr[strArr[i]] = (isNaN(hashStr[strArr[i]])) ? 1 :hashStr[strArr[i]] + 1 ;
+        hashStr[strArr[i]] = (!hashStr.hasOwnProperty(strArr[i])) ? 1 :hashStr[strArr[i]] + 1 ;
     }
 
     //push keys with value of 1 to array
@@ -56,8 +56,10 @@ palindromePerm = (str) => {
 // return false;
 
 console.log( palindromePerm("12344321") ); //true
+console.log( palindromePerm("13324214") ); //true
 console.log( palindromePerm("abcddcba")); //true
 console.log(palindromePerm("123443")); //false
 console.log(palindromePerm("Tact Coa")); //true
 console.log(palindromePerm("anna")); //true
 console.log(palindromePerm("Eva can I see bees in a cave")) // true
+console.log( palindromePerm("")); //true
