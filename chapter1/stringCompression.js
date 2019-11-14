@@ -7,16 +7,16 @@ stringCompression = ( str ) => {
     var  s = str.toLowerCase().split("");
 
     for(var i = 0;  i < s.length; i++){
-            arr.push({char: s[i], value: 1})
+            arr.push({char: s[i], value: 1});
     }
     for(var g = 0;  g < arr.length; g++){
         if (typeof arr[g+1] !== 'undefined' && arr[g].char === arr[g+1].char){
             arr[g].value++;
             arr.splice(g+1, 1)
             g--;
-        }     
+        } 
+        
     }
-
     for (var t = 0; t < arr.length; t++) {
         var char = arr[t].char;
         var iterations = arr[t].value;
