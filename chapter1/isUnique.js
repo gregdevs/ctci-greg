@@ -13,7 +13,6 @@ isUnique = (str) => {
     }
     return true
 }
-
-// isUnique("knicks") => false
-// isUnique("yankees") => false
-// isUnique("pagerduty") => true
+console.log(isUnique("knicks"))
+console.log(isUnique("yankees"))
+console.log(isUnique("pagerduty"))

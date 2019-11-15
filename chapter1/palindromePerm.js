@@ -17,7 +17,6 @@ palindromePerm = (str) => {
             leftOver.push(hashStr[k])
         }
     }
-
     // if there are more than 1 base character in array  with just 1 value, we know that it is not a palindrome
     if (leftOver.length > 1){
         return false
