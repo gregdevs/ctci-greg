@@ -2,24 +2,24 @@
 
 
 
-palindromePerm = (str) => {
-    var strArr = str.replace(/ /g, "").toLowerCase().split("");
-    var hashStr = {};
-    var leftOver = [];
+function palindromePerm(str) {
+    let strArr = str.replace(/ /g, "").toLowerCase().split(""),
+        hashStr = {},
+        leftOver = [];
     //  assign k/v to hash
-    for (var i = 0; i < strArr.length; i++){
+    for (let i = 0; i < strArr.length; i++){
         hashStr[strArr[i]] = (!hashStr.hasOwnProperty(strArr[i])) ? 1 :hashStr[strArr[i]] + 1 ;
     }
 
     //push keys with value of 1 to array
-    for(var k = 0; k < Object.keys(hashStr).length; k++){
+    for(let k = 0; k < Object.keys(hashStr).length; k++){
         if (hashStr[k] === 1){
-            leftOver.push(hashStr[k])
+            leftOver.push(hashStr[k]);
         }
     }
     // if there are more than 1 base character in array  with just 1 value, we know that it is not a palindrome
     if (leftOver.length > 1){
-        return false
+        return false;
     }
     return true;
 }
@@ -29,7 +29,7 @@ palindromePerm = (str) => {
 //original attempt
 
 
-// var cleanedStr = str.replace(/ /g, "" ).toLowerCase(),
+// let cleanedStr = str.replace(/ /g, "" ).toLowerCase(),
 // isEven = cleanedStr.length % 2 === 0,
 // firstHalf = cleanedStr.substring(0, Math.round(cleanedStr.length/2)).split("").sort().join(""),
 // secondHalf;
@@ -43,8 +43,8 @@ palindromePerm = (str) => {
 // else {
 // secondHalf = cleanedStr.substring(cleanedStr.length,  Math.round(cleanedStr.length/2)).split("").sort().join("");
 // if (firstHalf.length === secondHalf.length + 1){
-//     for (var i = 0; i < firstHalf.length; i++){
-//         for (var g = i + 1; g < secondHalf.length; g++){
+//     for (let i = 0; i < firstHalf.length; i++){
+//         for (let g = i + 1; g < secondHalf.length; g++){
 //             if (firstHalf[i] !== secondHalf[g]){
 //                 return true
 //             }
