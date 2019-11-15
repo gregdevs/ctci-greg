@@ -1,7 +1,7 @@
 //implement  an algo to determine id a string has all unique characters. What if you cannot use additional data structure?
 //  first attempt
 
-isUnique = (str) => {
+function isUnique(str){
     var i = 0; // acting on the belief that an integer is a data type and NOT really data structure
     while(i < str.length){
         for(var g = i; g < str.length; g++){
