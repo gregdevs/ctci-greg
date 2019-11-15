@@ -2,9 +2,9 @@
 //  first attempt
 
 function isUnique(str){
-    var i = 0; // acting on the belief that an integer is a data type and NOT really data structure
+    let i = 0; // acting on the belief that an integer is a data type and NOT really data structure
     while(i < str.length){
-        for(var g = i; g < str.length; g++){
+        for(let g = i; g < str.length; g++){
             if (str[i] === str[g+1]){
                 return false;
             }
@@ -13,6 +13,6 @@ function isUnique(str){
     }
     return true
 }
-console.log(isUnique("knicks"))
-console.log(isUnique("yankees"))
-console.log(isUnique("pagerduty"))
+console.log(isUnique("knicks")) // false
+console.log(isUnique("yankees")) // false
+console.log(isUnique("pagerduty")) //true
