@@ -15,26 +15,25 @@ Output:
 ];
 
 */
-rotateMatrix = (arr) => {
-    var rotateArr = [];
-    var arrLen = arr.length;
-    var  i = 0;
+function rotateMatrix(arr){
+    let rotateArr = [], 
+                i = 0;
 
     function loopThrough(i){
-        if (rotateArr.length === arrLen ){
+        if (rotateArr.length === arr.length ){
             return rotateArr;
         }  
 
         while(i < arr.length){
             var temp = [];
             var l = 0;
-            while(l < arrLen ){
+            while(l < arr.length ){
                 temp.push(arr[l][i]);
                 l++;
             }
             rotateArr.push(temp.reverse());
             i++;
-            return loopThrough(i)          
+            return loopThrough(i);          
         }
 
     }
