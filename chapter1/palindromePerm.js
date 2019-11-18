@@ -5,23 +5,22 @@
 function palindromePerm(str) {
     let strArr = str.replace(/ /g, "").toLowerCase().split(""),
         hashStr = {},
+        hashStrLen,
         leftOver = [];
     //  assign k/v to hash
     for (let i = 0; i < strArr.length; i++){
         hashStr[strArr[i]] = (!hashStr.hasOwnProperty(strArr[i])) ? 1 :hashStr[strArr[i]] + 1 ;
     }
-
+    
+    hashStrLen = Object.keys(hashStr).length;
     //push keys with value of 1 to array
-    for(let k = 0; k < Object.keys(hashStr).length; k++){
+    for(let k = 0; k < hashStrLen; k++){
         if (hashStr[k] === 1){
             leftOver.push(hashStr[k]);
         }
     }
     // if there are more than 1 base character in array  with just 1 value, we know that it is not a palindrome
-    if (leftOver.length > 1){
-        return false;
-    }
-    return true;
+    return leftOver.length === 0;
 }
 
 
