@@ -18,7 +18,7 @@ function oneAway(str1, str2){
         return false;   
     }
     //replace character or  addedcharacter  firsSte
-    if (str1.length === str2.length || str1.length > str2.length){
+    if (str1.length >= str2.length ){
        return loopStrings(str1, str2);
     }
     else if (str2.length > str1.length) {
